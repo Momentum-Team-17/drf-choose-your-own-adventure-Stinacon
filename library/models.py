@@ -23,6 +23,7 @@ class Book(models.Model):
         to='Author', on_delete=models.CASCADE)
     date_published = models.DateField(blank=True, null=True)
     genre = models.CharField(choices=CHOICES, max_length=50)
+    featured = models.BooleanField(default=False)
 
     class Meta:
         constraints = [
