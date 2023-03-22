@@ -15,3 +15,10 @@ class BookSerializer(serializers.ModelSerializer):
             'genre',
             'featured',
         )
+
+
+class AuthorSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Author
+        fileds = ('name',)

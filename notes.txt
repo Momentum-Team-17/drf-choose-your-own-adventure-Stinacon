@@ -8,3 +8,10 @@
 
 - QUESTION, re: Serlializers:
  --> In the Book serializer, or any serializer, do I include all of the attributes in "fields?"
+ --> YES!
+
+- for the Tracker model, what other relationship/s do I set upi between user and/or books, for example to make Tracker an attribute of user?
+
+- what is this line for in config/urls.py?:
+path("", include('library.urls')),
+--> and why do we have two url files?

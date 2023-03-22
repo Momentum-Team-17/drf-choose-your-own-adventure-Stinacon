@@ -40,3 +40,17 @@ class Author(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Tracker(models.Model):
+    CHOICES = (
+        ('want to read', 'Want to Read'),
+        ('reading', 'Reading'),
+        ('finished', 'Finished'),
+    )
+
+    user = models.ForeignKey(
+        to='User', on_delete=models.CASCADE)
+    book = models.ForeignKey(
+        to='Book', on_delete=models.CASCADE)
+    status = models.CharField(choices=CHOICES, max_length=50)
