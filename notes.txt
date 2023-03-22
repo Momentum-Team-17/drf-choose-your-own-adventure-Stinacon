@@ -5,3 +5,6 @@
  --> serializers
 
 - Views return JSON responses
+
+- QUESTION, re: Serlializers:
+ --> In the Book serializer, or any serializer, do I include all of the attributes in "fields?"
