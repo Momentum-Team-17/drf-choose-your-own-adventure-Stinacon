@@ -1,0 +1,7 @@
+- Will need:
+ --> models (created Book; User, Author)
+ --> views (class-based views)
+ --> urls (in the path, view_name.as_view()?)
+ --> serializers
+
+- Views return JSON responses
