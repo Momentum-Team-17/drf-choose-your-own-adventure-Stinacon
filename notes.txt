@@ -15,3 +15,7 @@
 - what is this line for in config/urls.py?:
 path("", include('library.urls')),
 --> and why do we have two url files?
+
+- VIEWS/URLs I need:
+    --> Book list ✅.... w/ pk for user??
+    --> 
