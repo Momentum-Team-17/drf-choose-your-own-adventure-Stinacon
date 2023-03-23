@@ -19,8 +19,25 @@ class BookList(generics.ListCreateAPIView):
     filterset_fields = ['featured']
     search_fields = ['title', 'author__name']
 
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+    # I want to write a conditional here the says if book they are entering has same author and name as existing book, give them an error message
+    # something with request.data.get('title') and same with author
+    # From chat GPT:
+        # existing_book = Book.objects.filter(
+        #     title=request.data.get('title'),
+        #     author=request.data.get('author')
+        # ).exists()
 
-class BookDetail(generics.RetrieveUpdateAPIView):
+        # if existing_book:
+        #     # If the book already exists, return a 400 Bad Request response with an error message
+        #     return Response({'error': 'This book already exists.'}, status=status.HTTP_400_BAD_REQUEST)
+        # else:
+        #     # If the book does not exist, proceed with creating it
+        #     return super().create(request, *args, **kwargs)
+
+
+class BookDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
 
@@ -31,3 +48,7 @@ class BookDetail(generics.RetrieveUpdateAPIView):
     @permission_classes([IsAdminUser])
     def patch(self, request, *args, **kwargs):
         return self.partial_update(request, *args, **kwargs)
+
+    @permission_classes([IsAdminUser])
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
