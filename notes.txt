@@ -18,4 +18,13 @@ path("", include('library.urls')),
 
 - VIEWS/URLs I need:
     --> Book list ✅.... w/ pk for user??
-    --> 
+    --> ...
+
+
+- users can search by Title; Author- anyone can add a new book that is NOT a duplicate (?)
+- ONLY ADMIN can UPDATE (like whether it is featured) and DELETE
+- Tracking status CAN be updated
+
+--> ?? Do I want the whole app to have IsAuthenticated? permissions? Like add it to settings.py?
+--> ?? Do I have to import: from rest_framework.permissions import IsAdminUser 
+in view.py, or does importing permissions cover that?
