@@ -50,7 +50,16 @@ class Tracker(models.Model):
     )
 
     user = models.ForeignKey(
-        to='User', on_delete=models.CASCADE)
+        to='User', on_delete=models.CASCADE, related_name="trackings_of_user")
     book = models.ForeignKey(
-        to='Book', on_delete=models.CASCADE)
+        to='Book', on_delete=models.CASCADE, related_name="trackings_of_book")
     status = models.CharField(choices=CHOICES, max_length=50)
+
+    class Meta:
+        constraints = [
+            UniqueConstraint(
+                fields=['user', 'book'], name='tracker_constraints')
+        ]
+
+    def __str__(self):
+        return f"{self.user.username} - {self.book.title}: {self.status}"

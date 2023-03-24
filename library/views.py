@@ -5,7 +5,7 @@ from rest_framework.permissions import IsAdminUser
 from django_filters.rest_framework import DjangoFilterBackend
 
 from .models import Book, User, Author, Tracker
-from .serializers import BookSerializer
+from .serializers import BookSerializer, TrackerSerializer
 # Create your views here.
 
 
@@ -52,3 +52,17 @@ class BookDetail(generics.RetrieveUpdateDestroyAPIView):
     @permission_classes([IsAdminUser])
     def delete(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
+
+
+class UserTracker(generics.ListCreateAPIView):
+    queryset = Tracker.objects.all()
+    serializer_class = TrackerSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['status']
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+    def get_queryset(self):
+        queryset = Tracker.objects.filter(user=self.request.user)
+        return queryset
