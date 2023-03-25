@@ -2,7 +2,7 @@ import os
 from django.core.management.base import BaseCommand
 
 from library.models import User
-from library import settings
+from config import settings
 
 
 # To run this management command:
