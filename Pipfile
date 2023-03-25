@@ -9,6 +9,8 @@ django-environ = "*"
 djangorestframework = "*"
 django-extensions = "*"
 django-filter = "*"
+psycopg2-binary = "*"
+whitenoise = "*"
 
 [dev-packages]
 

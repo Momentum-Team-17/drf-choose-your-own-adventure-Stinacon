@@ -50,3 +50,6 @@ Admin users can:
 
 update a book (including marking/unmarking it as featured)
 delete a book (this should not delete notes about a book)
+
+***My postgres USER and DATABASE names:
+library / library
