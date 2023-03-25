@@ -11,6 +11,7 @@ django-extensions = "*"
 django-filter = "*"
 psycopg2-binary = "*"
 whitenoise = "*"
+gunicorn = "*"
 
 [dev-packages]
 
